@@ -25,7 +25,8 @@ const Index = () => {
       <Grid templateColumns="repeat(8, 1fr)" gap={1}>
         {board.map((row, rowIndex) => row.map((cell, colIndex) => (
           <Button key={`${rowIndex}-${colIndex}`} 
-                  colorScheme={cell ? cell : 'gray'} 
+                  colorScheme={cell ? (cell === 'black' ? 'black' : 'white') : 'gray'} 
+                  style={{ backgroundColor: cell, color: cell === 'black' ? 'white' : 'black', fontWeight: 'bold' }}
                   onClick={() => handleCellClick(rowIndex, colIndex)}>
             {cell ? cell[0].toUpperCase() : ''}
           </Button>
